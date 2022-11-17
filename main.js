@@ -1,6 +1,7 @@
 window.addEventListener("DOMContentLoaded", main);
 
 
+
 /** @type {HTMLParagraphElement} p-tag to display scene scenario*/
 let text;
 /**@type {HTMLButtonElement} first option in scenarios */
@@ -13,13 +14,14 @@ let button3;
 let button4;
 
 function main() {
-    loadStartScene();
     loadHtmlElements();
+    loadStartScene();
 }
 
 // let *** = true/false to add Boolean futures
 
 function loadHtmlElements() {
+    img = document.querySelector('#scenery-div img');
     text = document.getElementById('text');
     button1 = document.getElementById('opt-1');
     button2 = document.getElementById('opt-2');
@@ -27,25 +29,29 @@ function loadHtmlElements() {
     button4 = document.getElementById('opt-4');
 } 
 
+
+
+
+
+
+
 function loadStartScene() {
     // document.body.innerHTML = "";
-    const text = document.getElementById('text');
-    const button1 = document.getElementById('opt-1');
-    const button2 = document.getElementById('opt-2');
-    const button3 = document.getElementById('opt-3');
-    const button4 = document.getElementById('opt-4');
+   
     // const button4 = document.createElement('button')
 
-    text.textContent ="Go on an adventure!";
+    img.src = "./images/Start scene.webp";
+
+    text.textContent ='Go on an adventure!';
     
     button1.textContent = 'Pick up Sword';
     button1.addEventListener('click', loadSwordScene)
 
     button2.textContent = 'Pick up Shield';
-    button2.addEventListener('click', loadSwordScene)
+    button2.addEventListener('click', loadShieldScene)
 
     button3.textContent = 'Pick up Lucky Charm';
-    button3.addEventListener('click', loadSwordScene)
+    button3.addEventListener('click', loadLuckyCharmScene)
 
     button4.textContent = 'Go on emptyhanded';
     button4.addEventListener('click', loadEmptyHandedScene)
@@ -53,39 +59,80 @@ function loadStartScene() {
     // itemChoice = textContent
 }
 
-function loadSwordScene() {
-    const text = document.getElementById('text');
-    const button1 = document.getElementById('opt-1');
-    const button2 = document.getElementById('opt-2');
-    const button3 = document.getElementById('opt-3');
-    const button4 = document.getElementById('opt-4');
 
-    text.textContent = 'So you opted for the sword, eh? Well well. Lets see if it comes in handy!'
+
+
+function loadSwordScene() {
+   
+    text.textContent = 'So you opted for the sword, eh? Well well. Lets see if it comes in handy!   '
+
+    img.src = "./images/Free gifs gif.gif"
+
+    
+    
+
+    const itemBox = document.getElementById('loot-items')
+
+    button1.textContent = 'Pick up Sword';
+    button1.addEventListener('click', loadSwordScene)
+
+    button2.textContent = 'Pick up Shield';
+    button2.addEventListener('click', loadShieldScene)
+
+    button3.textContent = 'Pick up Lucky Charm';
+    button3.addEventListener('click', loadLuckyCharmScene)
+
+    button4.textContent = 'Go on emptyhanded';
+    button4.addEventListener('click', loadEmptyHandedScene)
+  
+    
 }
 function loadShieldScene() {
-    const text = document.getElementById('text');
-    const button1 = document.getElementById('opt-1');
-    const button2 = document.getElementById('opt-2');
-    const button3 = document.getElementById('opt-3');
-    const button4 = document.getElementById('opt-4');
 
-    text.textContent = 'So you opted for the sword, eh? Well well. Lets see if it comes in handy!'
+    text.textContent = 'A shield? Anyone in their right mind would probably pick a sword before a shield. I guess you are not in your right mind'
+    
+    button1.textContent = 'Pick up Sword';
+    button1.addEventListener('click', loadSwordScene)
+
+    button2.textContent = 'Pick up Shield';
+    button2.addEventListener('click', loadShieldScene)
+
+    button3.textContent = 'Pick up Lucky Charm';
+    button3.addEventListener('click', loadLuckyCharmScene)
+
+    button4.textContent = 'Go on emptyhanded';
+    button4.addEventListener('click', loadEmptyHandedScene)
 }
 function loadLuckyCharmScene() {
-    const text = document.getElementById('text');
-    const button1 = document.getElementById('opt-1');
-    const button2 = document.getElementById('opt-2');
-    const button3 = document.getElementById('opt-3');
-    const button4 = document.getElementById('opt-4');
+    
+    text.textContent = 'Who needs a sword when your enemies wont ever be able to hit you? Maybe you dont even meet your enemies? WHO KNOWS?'
 
-    text.textContent = 'So you opted for the sword, eh? Well well. Lets see if it comes in handy!'
+    button1.textContent = 'Pick up Sword';
+    button1.addEventListener('click', loadSwordScene)
+
+    button2.textContent = 'Pick up Shield';
+    button2.addEventListener('click', loadShieldScene)
+
+    button3.textContent = 'Pick up Lucky Charm';
+    button3.addEventListener('click', loadLuckyCharmScene)
+
+    button4.textContent = 'Go on emptyhanded';
+    button4.addEventListener('click', loadEmptyHandedScene)
+    
 }
 function loadEmptyHandedScene() {
-    const text = document.getElementById('text');
-    const button1 = document.getElementById('opt-1');
-    const button2 = document.getElementById('opt-2');
-    const button3 = document.getElementById('opt-3');
-    const button4 = document.getElementById('opt-4');
+    
+    text.textContent = 'You are mad. What if you encounter a dragon? Are you going to slap it?'
 
-    text.textContent = 'So you opted for the sword, eh? Well well. Lets see if it comes in handy!'
+    button1.textContent = 'Pick up Sword';
+    button1.addEventListener('click', loadSwordScene)
+
+    button2.textContent = 'Pick up Shield';
+    button2.addEventListener('click', loadShieldScene)
+
+    button3.textContent = 'Pick up Lucky Charm';
+    button3.addEventListener('click', loadLuckyCharmScene)
+
+    button4.textContent = 'Go on emptyhanded';
+    button4.addEventListener('click', loadEmptyHandedScene)
 }
