@@ -27,23 +27,8 @@
     transition: all 1s;
 }
 
-
-.incomingFox {
+.fox-end-div {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background-color: black;
-    z-index:200;
-    color: white;
-    text-align: center;
-    line-height: 90vh;
-}
-
-.incomingFox.display-none {
-    position: fixed;
-    opacity: 0;
     top: 0;
     left: 0;
     width: 100%;
@@ -53,8 +38,37 @@
     color: white;
     text-align: center;
     line-height: 90vh;
-    transition: all 1s;
 }
+
+.fox-end-h1 {
+    color: rgb(255, 255, 255);
+    transition: all 5s;
+    font-size: 40px;
+}
+
+.fox-end-h2 {
+
+    color: rgb(255, 255, 255);
+    transition: all 4s;
+    font-size: 20px;
+}
+
+/* .fox-end-div.display-none{
+    position: fixed;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+    z-index:180;
+    color: white;
+    text-align: center;
+    line-height: 90vh;
+    transition: all 1s;
+} */
+
+
 
 
 @keyframes fadeIn {

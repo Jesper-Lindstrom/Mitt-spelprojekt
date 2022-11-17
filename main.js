@@ -17,22 +17,12 @@ let button4;
 
 // document.addEventListener()
 
-
-
-
-
 function main() {
     loadHtmlElements();
     loadStartScene();
-}
-
-
-
-
-   
+}  
 
 // let *** = true/false to add Boolean futures
-
 
 const splash = document.querySelector('.splash');
 
@@ -40,6 +30,11 @@ const intro = document.getElementsByClassName('.titleFade');
 setTimeout(()=>{
     splash.classList.add('display-none');
 }, 6000)
+
+
+
+
+
 
 function loadHtmlElements() {
     img = document.querySelector('#scenery-div img');
@@ -49,6 +44,10 @@ function loadHtmlElements() {
     button3 = document.getElementById('opt-3');
     button4 = document.getElementById('opt-4');
 } 
+
+function refreshPage() {
+    window.location.reload();
+}
 
 
 function loadStartScene() {
@@ -68,7 +67,7 @@ function loadStartScene() {
     button3.onclick = loadStartScene2;
 
     button4.textContent = 'Go back to sleep';
-    button4.onclick = main;
+    button4.onclick = ('click', refreshPage);
 
     // restart!!! button4
 
@@ -103,35 +102,98 @@ function loadStartScene2 () {
 
 // const incomingFox = document.querySelector('.incomingFox.hidden');
 
-// const foxEncounter = document.querySelector('.titleFade');
-// setTimeout(()=>{
-//     div.removeAttribute("hidden");
-//     incomingFox.classList.add('display-none');
-// }, 6000)
+//     const foxEncounter = document.getElementsByClassName('.titleFade');
+//     setTimeout(()=>{
+//         incomingFox.classList.remove("hidden");
+//         incomingFox.classList.add('display-none');
+//     }, 6000)
 
 
 function loadFoxEncounter () {
 
- 
 
-    
 
     img.src = "./images/foxencounter.png";
 
     text.textContent ='*You see a fox. You hear the fox. I mean literally hear, like words. Its talking. Classic dream*';
     
     button1.textContent = 'Hello? Mr fox?.. Ms fox?';
-    button1.onclick = loadFoxEncounter;
+    button1.onclick = loadFollowFox;
 
      button2.textContent = 'Did you say something?';
-    button2.onclick = loadFoxEncounter;
+    button2.onclick = loadFollowFox;
 
      button3.textContent = '( Nice.. I am insane.)';
-    button3.onclick = loadFoxEncounter;
+    button3.onclick = loadFollowFox;
 
     button4.textContent = '(Act .. normal?)';
-    button4.onclick = loadFoxEncounter;
+    button4.onclick = loadFollowFox;
+
 }
+
+function loadFollowFox () {
+
+    img.src = "./images/Followthefox.webp";
+
+    text.textContent ='The fox doesn’t say anything. Classic fox. It begins to walk. Also kinda classic fox. Classic animal at least.';
+    
+    button1.textContent = 'Follow the fox';
+    button1.onclick = loadAttackFox;
+
+     button2.textContent = 'Go the other direction';
+    button2.onclick = loadAttackFox;
+
+     button3.textContent = 'Whistle at the fox';
+    button3.onclick = loadAttackFox;
+
+    button4.textContent = 'Attack the fox!';
+    button4.onclick = loadAttackFox;
+}
+
+
+function loadAttackFox () {
+    const div = document.createElement("div");
+    const h1 = document.createElement("h1");
+    const h2 = document.createElement("h2");
+
+    div.className = "fox-end-div"
+    h1.className = "fox-end-h1"
+    h1.textContent = '..Did I just get one-shotted by a fox?';
+
+    h2.className ="fox-end-h2"
+    h2.textContent = 'click anywhere to start over. ( Pro tip: dont attack the fox next time!)'
+    // h1.className = "fox-end-h1";
+
+
+    document.body.innerHTML = "";
+    document.body.append(div, h1, h2);
+    
+    // setTimeout(function(){
+    //     onclick = refreshPage
+    // }, 2000);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
