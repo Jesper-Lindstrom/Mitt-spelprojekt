@@ -4,15 +4,29 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My game</title>
-    <script src="./main.js"></script>
-    <link rel="stylesheet" href="./style.css" />
+    <title>The Journey game</title>
+    <script defer src="./main.js"></script>
+    <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="stylesheet" href="./styles/temporaryStyles.css" />
   </head>
   <body>
-    <div id="scenery-div"><img src="" alt="" /></div>
-    <div class="container">
-      <div id="text"></div>
-      <div class="buttons-container">
+    <div class="splash">
+      <h1 class="fade-in">The Journey</h1>
+    </div>
+
+    <div class="incomingFox.hidden">
+      <h1 class="fade-in">Something is approaching..</h1>
+    </div>
+
+    <div id="scenery-div">
+      <img src="" alt="" />
+      <div id="loot-items"></div>
+    </div>
+    <div class="text-container" id="text">
+      <p></p>
+    </div>
+    <div class="buttons-container">
+      <div class="buttons-grid">
         <button id="opt-1"></button>
         <button id="opt-2"></button>
         <button id="opt-3"></button>

@@ -54,24 +54,87 @@ function loadHtmlElements() {
 function loadStartScene() {
 
 
-    img.src = "./images/Start scene.webp";
+    img.src = "./images/Forest.png";
 
-    text.textContent ='Go on an adventure!';
+    text.textContent ='(You open up your eyes. The sun is shining..)' + '\n' + 'Why are we in a forest? Wait.. who are we?' + '\n' + '(Does my inner voice count as another .. human? Person? Being?)';
     
-    button1.textContent = 'Pick up Sword';
-    button1.onclick = loadSwordScene;
+    button1.textContent = 'Is this the real life?';
+    button1.onclick = loadStartScene2;
 
-; button2.textContent = 'Pick up Shield';
-    button2.onclick = loadShieldScene;
+     button2.textContent = 'Is this just fantasy?';
+    button2.onclick = loadStartScene2;
 
-;  button3.textContent = 'Pick up Lucky Charm';
-    button3.onclick = loadLuckyCharmScene;
+    button3.textContent = 'Am I mad?';
+    button3.onclick = loadStartScene2;
 
-    button4.textContent = 'Go on emptyhanded';
-    button4.onclick = loadEmptyHandedScene;
+    button4.textContent = 'Go back to sleep';
+    button4.onclick = main;
+
+    // restart!!! button4
 
     // itemChoice = textContent
 }
+
+function loadStartScene2 () {
+
+
+    img.src = "./images/Forest.png";
+
+    text.textContent ='Maybe. (Why does it feel like this inner voice isn’t really my own? It does sound like an outer voice. Is that a thing?)';
+    
+    button1.textContent = 'Wait.. Who said maybe?';
+    button1.onclick = loadFoxEncounter;
+
+     button2.textContent = 'Did I say maybe?';
+    button2.onclick = loadFoxEncounter;
+
+     button3.textContent = 'Did I dream I said maybe?';
+    button3.onclick = loadFoxEncounter;
+
+    button4.textContent = 'Maybe baby?';
+    button4.onclick = loadFoxEncounter;
+
+}
+
+
+
+
+// Ska detta vara i funtionen?
+
+// const incomingFox = document.querySelector('.incomingFox.hidden');
+
+// const foxEncounter = document.querySelector('.titleFade');
+// setTimeout(()=>{
+//     div.removeAttribute("hidden");
+//     incomingFox.classList.add('display-none');
+// }, 6000)
+
+
+function loadFoxEncounter () {
+
+ 
+
+    
+
+    img.src = "./images/foxencounter.png";
+
+    text.textContent ='*You see a fox. You hear the fox. I mean literally hear, like words. Its talking. Classic dream*';
+    
+    button1.textContent = 'Hello? Mr fox?.. Ms fox?';
+    button1.onclick = loadFoxEncounter;
+
+     button2.textContent = 'Did you say something?';
+    button2.onclick = loadFoxEncounter;
+
+     button3.textContent = '( Nice.. I am insane.)';
+    button3.onclick = loadFoxEncounter;
+
+    button4.textContent = '(Act .. normal?)';
+    button4.onclick = loadFoxEncounter;
+}
+
+
+
 
 
 function loadSwordScene() {
