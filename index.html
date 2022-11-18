@@ -10,11 +10,14 @@
     <link rel="stylesheet" href="./styles/temporaryStyles.css" />
   </head>
   <body>
-    <audio id="themeSong" src="./sounds/Journey.mp3"></audio>
+    <!-- add to separate introscreen maybe? -->
+    <button onclick="toggleMuted()">Toggle music</button>
+    <audio id="themeSong" autoplay="autoplay" loop="loop" muted="muted">
+      <source src="./sounds/themesong.mp3" type="audio/mp3" />
+    </audio>
     <div class="splash">
       <h1 class="fade-in">The Journey</h1>
     </div>
-    <div class="loader"></div>
 
     <!-- <div class="incomingFox.hidden">
       <h1 class="fade-in">Something is approaching..</h1>

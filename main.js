@@ -17,6 +17,15 @@ let button4;
 
 // document.addEventListener()
 
+let myAudio = document.getElementById('themeSong')
+myAudio.play()
+
+function toggleMuted() {
+    var sound = document.getElementById('themeSong');
+    sound.muted = !sound.muted;
+
+}
+
 function main() {
     loadHtmlElements();
     loadStartScene();
@@ -32,9 +41,7 @@ setTimeout(()=>{
 }, 6000)
 
 
-
-
-
+  
 
 function loadHtmlElements() {
     img = document.querySelector('#scenery-div img');
@@ -49,8 +56,7 @@ function refreshPage() {
     window.location.reload();
 }
 
-let myAudio = document.querySelector('#themeSong')
-myAudio.play()
+
 
 function loadStartScene() {
 
@@ -68,6 +74,7 @@ function loadStartScene() {
 
     button3.textContent = 'Am I mad?';
     button3.onclick = loadStartScene2;
+    
 
     button4.textContent = 'Go back to sleep';
     button4.onclick = ('click', refreshPage);
@@ -151,6 +158,7 @@ function loadFollowFox () {
 
     button4.textContent = 'Attack the fox!';
     button4.onclick = loadAttackFox;
+    
 }
 
 
@@ -161,8 +169,9 @@ function loadAttackFox () {
 
     div.className = "fox-end-div"
    
-        document.body.innerHTML = "";
-        document.body.append(div, h1, h2);
+    document.body.innerHTML = "";
+    document.body.append(div, h1, h2);
+    
     setTimeout(function(){
     h1.className = "fox-end-h1"
     h1.textContent = '..Did I just get one-shotted by a fox?';
@@ -171,6 +180,7 @@ function loadAttackFox () {
     h2.textContent = 'click anywhere to start over. ( Pro tip: dont attack the fox next time!)'
    
     }, 2000);
+    
     setTimeout(function(){
         onclick = refreshPage
     }, 2000);
@@ -184,12 +194,12 @@ function loadFollowFox2 () {
     text.textContent = 'The fox is heading for a stream. I just noticed that I may be dying from thirst. Is this fox my guardian angel? I mean, I am REALLY thirsty right now.';
 
     button1.textContent = 'Yes I am';
-    button1.onclick = loadFoxIdentityRevealed1;
+    // button1.onclick = loadFoxIdentityRevealed1;
 
-     button2.textContent = '(Yes you are)';
-    button2.onclick = loadFoxIdentityRevealed2;
+    button2.textContent = '(Yes you are)';
+    // button2.onclick = loadFoxIdentityRevealed2;
 
-     button3.textContent = 'Just drink water';
+    button3.textContent = 'Just drink water';
     button3.onclick = loadWhistleFail;
 
     button4.textContent = 'Attack the fox!';
@@ -199,25 +209,53 @@ function loadFollowFox2 () {
 function loadIgnoreFox () {
      
     
-        img.src = "./images/Day scene.png"
+    img.src = "./images/Day scene.png"
     
-        text.textContent = 'The fox is gone. You decide to continue walking and soon you see a stream.';
+    text.textContent = 'The fox is gone. You decide to continue walking and soon you see a stream of water. Good for you!';
     
-        button1.textContent = 'Yes I am';
-        button1.onclick = loadFoxIdentityRevealed1;
+    button1.textContent = 'I miss the fox..';
+    button1.onclick = loadShapeshifterScene;
     
-         button2.textContent = '(Yes you are)';
-        button2.onclick = loadFoxIdentityRevealed2;
-    
-         button3.textContent = 'Just drink water';
-        button3.onclick = loadWhistleFail;
-    
-        button4.textContent = 'Attack the fox!';
-        button4.onclick = loadAttackFox;
-    
+    button2.textContent = 'Drink water';
+    button2.onclick = loadShapeshifterScene;
+       
+      
+    button3.style.display ='none';
+    button4.style.display ='none';
 }
 
-// function loadWhistleFail ()
+function loadWhistleFail () {
+
+    img.src = "./images/Followthefox.webp";    
+
+    text.textContent = '*frpfpfpgg* .. *ffrrrrugpf* .. I cant whistle. My mouth is to dry. The fox continues to walk. I better run if I want to catch up. (Why am I so obsessed with an animal?)'
+
+}
+
+function loadShapeshifterScene () {
+
+    img.src = "./images/Day scene.png"
+
+    text.textContent = 'The fox is heading for a stream. I just noticed that I may be dying from thirst. Is this fox my guardian angel? I mean, I am REALLY thirsty right now.';
+
+    button1.textContent = 'Yes I am';
+    button1.onclick = loadFoxIdentityRevealed1;
+
+    button2.textContent = '(Yes you are)';
+    button2.onclick = loadFoxIdentityRevealed2;
+
+    button3.style.display ='block';
+    button3.textContent = 'Just drink water';
+    button3.onclick = loadWhistleFail;
+
+    button4.style.display ='block';
+    button4.textContent = 'Attack the fox!';
+    button4.onclick = loadAttackFox;
+
+    
+
+    
+}
 
 // function loadFoxIdentityRevealed1 ()
 
