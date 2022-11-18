@@ -49,9 +49,12 @@ function refreshPage() {
     window.location.reload();
 }
 
+let myAudio = document.querySelector('#themeSong')
+myAudio.play()
 
 function loadStartScene() {
 
+   
 
     img.src = "./images/Forest.png";
 
@@ -115,7 +118,7 @@ function loadFoxEncounter () {
 
     img.src = "./images/foxencounter.png";
 
-    text.textContent ='*You see a fox. You hear the fox. I mean literally hear, like words. Its talking. Classic dream*';
+    text.textContent ='*You see a fox.*  *You hear the fox.* I mean literally hear, like words. Its talking. Classic dream';
     
     button1.textContent = 'Hello? Mr fox?.. Ms fox?';
     button1.onclick = loadFollowFox;
@@ -135,16 +138,16 @@ function loadFollowFox () {
 
     img.src = "./images/Followthefox.webp";
 
-    text.textContent ='The fox doesn’t say anything. Classic fox. It begins to walk. Also kinda classic fox. Classic animal at least.';
+    text.textContent ='The fox doesn’t say anything more. Classic fox. (Was it just my imagination?) It begins to walk away. Also kinda classic fox. Classic animal at least.';
     
     button1.textContent = 'Follow the fox';
-    button1.onclick = loadAttackFox;
+    button1.onclick = loadFollowFox2;
 
      button2.textContent = 'Go the other direction';
-    button2.onclick = loadAttackFox;
+    button2.onclick = loadIgnoreFox;
 
      button3.textContent = 'Whistle at the fox';
-    button3.onclick = loadAttackFox;
+    button3.onclick = loadWhistleFail;
 
     button4.textContent = 'Attack the fox!';
     button4.onclick = loadAttackFox;
@@ -157,26 +160,68 @@ function loadAttackFox () {
     const h2 = document.createElement("h2");
 
     div.className = "fox-end-div"
+   
+        document.body.innerHTML = "";
+        document.body.append(div, h1, h2);
+    setTimeout(function(){
     h1.className = "fox-end-h1"
     h1.textContent = '..Did I just get one-shotted by a fox?';
 
     h2.className ="fox-end-h2"
     h2.textContent = 'click anywhere to start over. ( Pro tip: dont attack the fox next time!)'
-    // h1.className = "fox-end-h1";
-
-
-    document.body.innerHTML = "";
-    document.body.append(div, h1, h2);
-    
-    // setTimeout(function(){
-    //     onclick = refreshPage
-    // }, 2000);
+   
+    }, 2000);
+    setTimeout(function(){
+        onclick = refreshPage
+    }, 2000);
 }
 
 
+function loadFollowFox2 () {
+    
+    img.src = "./images/Day scene.png"
 
+    text.textContent = 'The fox is heading for a stream. I just noticed that I may be dying from thirst. Is this fox my guardian angel? I mean, I am REALLY thirsty right now.';
 
+    button1.textContent = 'Yes I am';
+    button1.onclick = loadFoxIdentityRevealed1;
 
+     button2.textContent = '(Yes you are)';
+    button2.onclick = loadFoxIdentityRevealed2;
+
+     button3.textContent = 'Just drink water';
+    button3.onclick = loadWhistleFail;
+
+    button4.textContent = 'Attack the fox!';
+    button4.onclick = loadAttackFox;
+}
+
+function loadIgnoreFox () {
+     
+    
+        img.src = "./images/Day scene.png"
+    
+        text.textContent = 'The fox is gone. You decide to continue walking and soon you see a stream.';
+    
+        button1.textContent = 'Yes I am';
+        button1.onclick = loadFoxIdentityRevealed1;
+    
+         button2.textContent = '(Yes you are)';
+        button2.onclick = loadFoxIdentityRevealed2;
+    
+         button3.textContent = 'Just drink water';
+        button3.onclick = loadWhistleFail;
+    
+        button4.textContent = 'Attack the fox!';
+        button4.onclick = loadAttackFox;
+    
+}
+
+// function loadWhistleFail ()
+
+// function loadFoxIdentityRevealed1 ()
+
+// function loadFoxIdentityRevealed2 ()
 
 
 
