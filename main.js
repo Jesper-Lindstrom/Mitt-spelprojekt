@@ -31,14 +31,18 @@ function main() {
     loadStartScene();
 }  
 
+//Boolean assignments
+
+insult = Boolean(false);
+
 // let *** = true/false to add Boolean futures
 
-const splash = document.querySelector('.splash');
+// const splash = document.querySelector('.splash');
 
-const intro = document.getElementsByClassName('.titleFade');
-setTimeout(()=>{
-    splash.classList.add('display-none');
-}, 6000)
+// const intro = document.getElementsByClassName('.titleFade');
+// setTimeout(()=>{
+//     splash.classList.add('display-none');
+// }, 6000)
 
 
   
@@ -150,10 +154,10 @@ function loadFollowFox () {
     button1.textContent = 'Follow the fox';
     button1.onclick = loadFollowFox2;
 
-     button2.textContent = 'Go the other direction';
+    button2.textContent = 'Ignore the fox walk forward';
     button2.onclick = loadIgnoreFox;
 
-     button3.textContent = 'Whistle at the fox';
+    button3.textContent = 'Whistle at the fox';
     button3.onclick = loadWhistleFail;
 
     button4.textContent = 'Attack the fox!';
@@ -173,17 +177,27 @@ function loadAttackFox () {
     document.body.append(div, h1, h2);
     
     setTimeout(function(){
-    h1.className = "fox-end-h1"
+    h1.className = "fox-end-h1";
     h1.textContent = '..Did I just get one-shotted by a fox?';
 
-    h2.className ="fox-end-h2"
-    h2.textContent = 'click anywhere to start over. ( Pro tip: dont attack the fox next time!)'
-   
+    h2.className ="fox-end-h2";
+    
+    if (insult = false) {
+        h2.textContent = 'click anywhere to start over. ( Pro tip: dont attack the fox next time!)';
+        setTimeout(function(){
+            onclick = refreshPage
+        }, 2000);
+
+    } else { 
+        h2.textContent = 'click anywhere to start over. ( Pro tip: dont insult creatures you have never seen!)'
+        
+        setTimeout(function(){
+            onclick = refreshPage
+        }, 2000);
+    }
+
     }, 2000);
     
-    setTimeout(function(){
-        onclick = refreshPage
-    }, 2000);
 }
 
 
@@ -191,19 +205,36 @@ function loadFollowFox2 () {
     
     img.src = "./images/Day scene.png"
 
-    text.textContent = 'The fox is heading for a stream. I just noticed that I may be dying from thirst. Is this fox my guardian angel? I mean, I am REALLY thirsty right now.';
+    text.textContent = 'The fox is heading for a stream. You just noticed that you may be dying from thirst. "Is this fox my guardian angel?" (I mean, I am REALLY thirsty right now.)';
 
-    button1.textContent = 'Yes I am';
-    // button1.onclick = loadFoxIdentityRevealed1;
+    button1.textContent = "No. I'm not your guardian angel";
+    button1.onclick = loadShapeshifterScene2;
 
-    button2.textContent = '(Yes you are)';
-    // button2.onclick = loadFoxIdentityRevealed2;
+    button2.textContent = 'Drink water';
+    button2.onclick = loadShapeshifterScene2;
 
     button3.textContent = 'Just drink water';
     button3.onclick = loadWhistleFail;
 
     button4.textContent = 'Attack the fox!';
     button4.onclick = loadAttackFox;
+}
+
+function loadWhistleFail () {
+
+    img.src = "./images/Followthefox.webp";    
+
+    text.textContent = '*frpfpfpgg* .. *ffrrrrugpf* .. I cant whistle. My mouth is to dry. I need water.\nThe fox continues to walk. I better run if I want to catch up. (Why am I so obsessed with an animal?)'
+
+    button1.textContent = 'Follow the fox';
+    button1.onclick = loadFollowFox2;
+
+    button2.textContent = 'Ignore the fox walk forward';
+    button2.onclick = loadIgnoreFox;
+
+    button3.style.display ='none';
+    button4.style.display ='none';
+
 }
 
 function loadIgnoreFox () {
@@ -224,25 +255,43 @@ function loadIgnoreFox () {
     button4.style.display ='none';
 }
 
-function loadWhistleFail () {
 
-    img.src = "./images/Followthefox.webp";    
 
-    text.textContent = '*frpfpfpgg* .. *ffrrrrugpf* .. I cant whistle. My mouth is to dry. The fox continues to walk. I better run if I want to catch up. (Why am I so obsessed with an animal?)'
-
-}
+//övergång? a familiar sound.. like when something appears out of nowhere in.. cartoons?
 
 function loadShapeshifterScene () {
 
     img.src = "./images/Day scene.png"
 
-    text.textContent = 'The fox is heading for a stream. I just noticed that I may be dying from thirst. Is this fox my guardian angel? I mean, I am REALLY thirsty right now.';
+    text.textContent = "(Did.. did it talk? I am loosing my mind. Can't the fox just stay quiet so I can stay sane?)";
 
-    button1.textContent = 'Yes I am';
-    button1.onclick = loadFoxIdentityRevealed1;
+    button1.textContent = 'Embrace your madness. Close your eyes.';
+    button1.onclick = loadShapeshifterScene3;
 
     button2.textContent = '(Yes you are)';
     button2.onclick = loadFoxIdentityRevealed2;
+
+    button3.style.display ='block';
+    button3.textContent = 'Just drink water';
+    button3.onclick = loadShapeshifterScene2;
+
+    button4.style.display ='block';
+    button4.textContent = 'Attack the fox!';
+    button4.onclick = loadAttackFox;
+
+ }
+
+function loadShapeshifterScene2 () {
+
+    img.src = "./images/Wurm.png"
+
+    text.textContent = 'You slowly turn around';
+
+    button1.textContent = 'Yes I am';
+    // button1.onclick = loadFoxIdentityRevealed1;
+
+    button2.textContent = '(Yes you are)';
+    // button2.onclick = loadFoxIdentityRevealed2;
 
     button3.style.display ='block';
     button3.textContent = 'Just drink water';
@@ -252,20 +301,51 @@ function loadShapeshifterScene () {
     button4.textContent = 'Attack the fox!';
     button4.onclick = loadAttackFox;
 
+ }
+function loadShapeshifterScene2 () {
+
+    img.src = "./images/Wurm.png"
+
+    text.textContent = 'You slowly turn around';
+
+    button1.textContent = 'Yes I am';
+    button1.onclick = loadWhistleFail;
+
+    button2.textContent = 'Is that a ..worm?';
+    button2.onclick = loadAttackFox, insult = Boolean(true);
+
+    button3.style.display ='block';
+    button3.textContent = 'Just drink water';
+    button3.onclick = loadWhistleFail;
+
+    button4.style.display ='block';
+    button4.textContent = 'Attack the fox!';
+    button4.onclick = loadAttackFox;
+
+ }
+function loadShapeshifterScene3 () {
+
+    img.src = "./images/Wurm.png"
+
+    text.textContent = 'You open your eyes. The fox is gone and infront of you is a creauture you would describe as a..';
+
+    button1.textContent = 'Snake?';
+    button1.onclick = loadWhistleFail;
+
+    button2.textContent = 'Worm?';
+    button2.onclick = loadAttackFox, insult = Boolean(true);
     
 
-    
-}
-
-// function loadFoxIdentityRevealed1 ()
-
-// function loadFoxIdentityRevealed2 ()
+    button3.style.display ='';
+    button3.textContent = 'Serpent?';
+    button3.onclick = loadWhistleFail;
 
 
+    button4.style.display ='';
+    button4.textContent = 'Attack the "fox!"';
+    button4.onclick = loadAttackFox;
 
-
-
-
+ }
 
 
 
@@ -280,76 +360,74 @@ function loadShapeshifterScene () {
 
 
 
-
-
-function loadSwordScene() {
+// function loadSwordScene() {
    
-    text.textContent = 'So you opted for the sword, eh? Well well. Lets see if it comes in handy!   '
+//     text.textContent = 'So you opted for the sword, eh? Well well. Lets see if it comes in handy!   '
 
-    img.src = "./images/Free gifs gif.gif"
+//     img.src = "./images/Free gifs gif.gif"
 
-    const itemBox = document.getElementById('loot-items')
+//     const itemBox = document.getElementById('loot-items')
 
-    button1.textContent = 'Pick up Sword';
-    button1.onclick = loadSwordScene;
+//     button1.textContent = 'Pick up Sword';
+//     button1.onclick = loadSwordScene;
 
-; button2.textContent = 'Pick up Shield';
-    button2.onclick = loadShieldScene;
+// ; button2.textContent = 'Pick up Shield';
+//     button2.onclick = loadShieldScene;
 
-;  button3.textContent = 'Pick up Lucky Charm';
-    button3.onclick = loadLuckyCharmScene;
+// ;  button3.textContent = 'Pick up Lucky Charm';
+//     button3.onclick = loadLuckyCharmScene;
 
-    button4.textContent = 'Go on emptyhanded';
-    button4.onclick = loadEmptyHandedScene;
+//     button4.textContent = 'Go on emptyhanded';
+//     button4.onclick = loadEmptyHandedScene;
   
     
-}
-function loadShieldScene() {
+// }
+// function loadShieldScene() {
 
-    text.textContent = 'A shield? Anyone in their right mind would probably pick a sword before a shield. I guess you are not in your right mind'
+//     text.textContent = 'A shield? Anyone in their right mind would probably pick a sword before a shield. I guess you are not in your right mind'
     
-    button1.textContent = 'Pick up Sword';
-    button1.onclick = loadSwordScene;
+//     button1.textContent = 'Pick up Sword';
+//     button1.onclick = loadSwordScene;
 
-; button2.textContent = 'Pick up Shield';
-    button2.onclick = loadShieldScene;
+// ; button2.textContent = 'Pick up Shield';
+//     button2.onclick = loadShieldScene;
 
-;  button3.textContent = 'Pick up Lucky Charm';
-    button3.onclick = loadLuckyCharmScene;
+// ;  button3.textContent = 'Pick up Lucky Charm';
+//     button3.onclick = loadLuckyCharmScene;
 
-    button4.textContent = 'Go on emptyhanded';
-    button4.onclick = loadEmptyHandedScene;
-}
-function loadLuckyCharmScene() {
+//     button4.textContent = 'Go on emptyhanded';
+//     button4.onclick = loadEmptyHandedScene;
+// }
+// function loadLuckyCharmScene() {
     
-    text.textContent = 'Who needs a sword when your enemies wont ever be able to hit you? Maybe you dont even meet your enemies? WHO KNOWS?'
+//     text.textContent = 'Who needs a sword when your enemies wont ever be able to hit you? Maybe you dont even meet your enemies? WHO KNOWS?'
 
-    button1.textContent = 'Pick up Sword';
-    button1.onclick = loadSwordScene;
+//     button1.textContent = 'Pick up Sword';
+//     button1.onclick = loadSwordScene;
 
-; button2.textContent = 'Pick up Shield';
-    button2.onclick = loadShieldScene;
+// ; button2.textContent = 'Pick up Shield';
+//     button2.onclick = loadShieldScene;
 
-;  button3.textContent = 'Pick up Lucky Charm';
-    button3.onclick = loadLuckyCharmScene;
+// ;  button3.textContent = 'Pick up Lucky Charm';
+//     button3.onclick = loadLuckyCharmScene;
 
-    button4.textContent = 'Go on emptyhanded';
-    button4.onclick = loadEmptyHandedScene;
+//     button4.textContent = 'Go on emptyhanded';
+//     button4.onclick = loadEmptyHandedScene;
     
-}
-function loadEmptyHandedScene() {
+// }
+// function loadEmptyHandedScene() {
     
-    text.textContent = 'You are mad. What if you encounter a dragon? Are you going to slap it?'
+//     text.textContent = 'You are mad. What if you encounter a dragon? Are you going to slap it?'
 
-    button1.textContent = 'Pick up Sword';
-    button1.onclick = loadSwordScene;
+//     button1.textContent = 'Pick up Sword';
+//     button1.onclick = loadSwordScene;
 
-; button2.textContent = 'Pick up Shield';
-    button2.onclick = loadShieldScene;
+// ; button2.textContent = 'Pick up Shield';
+//     button2.onclick = loadShieldScene;
 
-;  button3.textContent = 'Pick up Lucky Charm';
-    button3.onclick = loadLuckyCharmScene;
+// ;  button3.textContent = 'Pick up Lucky Charm';
+//     button3.onclick = loadLuckyCharmScene;
 
-    button4.textContent = 'Go on emptyhanded';
-    button4.onclick = loadEmptyHandedScene;
-}
+//     button4.textContent = 'Go on emptyhanded';
+//     button4.onclick = loadEmptyHandedScene;
+// }
