@@ -466,7 +466,7 @@ function loadSwordScene() {
     button1.textContent = "I'll slice his head of!";
     button1.onclick = loadSwordScene;
 
-    button2.textContent = 'Pick up Shield';
+    button2.textContent = 'Change your mind';
     button2.onclick = loadShieldScene;
 
     button3.textContent = 'Attack the Shapeshifter';
@@ -481,12 +481,15 @@ function loadShieldScene() {
     text.textContent = 'A shield? Anyone in their right mind would probably pick a sword before a shield. I guess you are not in your right mind.'
     
     button1.textContent = 'Block block run?';
-    button1.onclick = loadSwordScene;
+    button1.onclick = loadSunset;
 
     button2.textContent = 'Block SMASH block SMASH!';
-    button2.onclick = loadShieldScene;
+    button2.onclick = loadSunset;
 
-    button3.style.display ='none'
+    button3.style.display ='block'
+    button3.textContent = 'Change your mind';
+    button3.onclick = loadPickLoot
+
     button4.style.display ='none'
 
 }
@@ -496,37 +499,38 @@ function loadLuckyCharmScene() {
     text.textContent = 'Who needs a sword when your enemies wont ever be able to hit you? Maybe you dont even meet your enemies? WHO KNOWS?'
 
     button1.textContent = 'Luck is my only chance..';
-    button1.onclick = loadSwordScene;
+    button1.onclick = loadSunset;
 
     button2.textContent = 'Try your luck. RUN!';
     button2.onclick = loadEscapeScene;
 
-    button3.textContent = 'Pick up Lucky Charm';
-    button3.onclick = loadLuckyCharmScene;
+    button3.style.display ='block'
+    button3.textContent = 'change your mind';
+    button3.onclick = loadPickLoot
 
-    button4.textContent = 'Go on emptyhanded';
-    button4.onclick = loadEmptyHandedScene;
+    button4.style.display ='none'
     
 }
 function loadEmptyHandedScene() {
     
     text.textContent = 'You are mad. You may be facing a demon? Are you going to slap it?'
 
-    button1.textContent = 'Pick up Sword';
-    button1.onclick = loadSwordScene;
+    button1.textContent = 'change your mind';
+    button1.onclick = loadPickLoot;
 
-    button2.textContent = 'Pick up Shield';
-    button2.onclick = loadShieldScene;
+    button2.textContent = '(I need to be light so I can run!)';
+    button2.onclick = loadSunset;
 
-    button3.textContent = 'Pick up Lucky Charm';
-    button3.onclick = loadLuckyCharmScene;
+    button3.textContent = 'Falcon punch?';
+    button3.onclick = loadSunset;
 
-    button4.textContent = 'Go on emptyhanded';
-    button4.onclick = loadEmptyHandedScene;
+    button4.style.display ='none'
 }
 
 function loadSunset () {
-    text.textContent = '*The sun is setting. Someone is about to die.*'
+    img.src = "/images/sunset.jpg"
+
+    text.textContent = '*The sun is setting.* Someone is about to die tonight.'
 
     button1.textContent = 'Is it me?';
     button1.onclick = loadSwordScene;
@@ -534,4 +538,9 @@ function loadSunset () {
     button2.textContent = 'Is it the demon?';
     button2.onclick = loadShieldScene;
 
-    
+    button3.textContent = 'Please help me';
+}
+
+function loadEscapeScene () {
+
+    }
