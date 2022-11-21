@@ -301,7 +301,7 @@ function loadIgnoreFox () {
 
 
 function loadShapeshifterScene () {
-    img.src = "./images/Wurm.png"
+    img.src = "./images/foxencounter.png"
 
     text.textContent = '"No I am not"\n(Did.. did it talk? I am loosing my mind. Cant the fox just stay quiet so I can stay sane?)';
 
