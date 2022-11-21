@@ -9,3 +9,5 @@ The game uses buttons to make 2-4 choices between the different scenes and depen
 How its made
 My focus was writing as much javascript as possible and not pay much attention to esthetics with html and css. I've used several
 functions that do the same but show different scenes and played around with boolean futures and if statements to broaden my experience with those.
+
+https://jesper-lindstrom.github.io/Mitt-spelprojekt/
